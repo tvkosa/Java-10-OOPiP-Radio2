@@ -14,11 +14,7 @@ public class Radio {
     private int quantityStation = 10;
     private int currentVolume;
 
-      public int getCurrentStation() {
-        return currentStation;
-    }
-
-     public void setCurrentStation(int currentStation) {
+    public void setCurrentStation(int currentStation) {
         if (currentStation > quantityStation - 1) {
             return;
         }
@@ -42,10 +38,6 @@ public class Radio {
         } else {
             this.currentStation = currentStation - 1;
         }
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
     }
 
     public void setCurrentVolume(int currentVolume) {
