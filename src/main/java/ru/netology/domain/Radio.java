@@ -1,18 +1,20 @@
 package ru.netology.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
+
 public class Radio {
     private int currentStation;
     private int quantityStation = 10;
     private int currentVolume;
 
-    public Radio(int quantityStation) {
-        this.quantityStation = quantityStation;
-    }
-
-    public Radio() {
-    }
-
-    public int getCurrentStation() {
+      public int getCurrentStation() {
         return currentStation;
     }
 

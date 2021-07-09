@@ -21,7 +21,7 @@ class RadioTest {
 
     @Test
     public void numberCurrentStationRangesFromToAdvansed() {
-        Radio radio = new Radio(33);
+        Radio radio = new Radio(0, 33, 1);
         radio.setCurrentStation(-1);
         assertEquals(0, radio.getCurrentStation());
 
@@ -45,7 +45,7 @@ class RadioTest {
 
     @Test
     public void pressedNextButtonStationAdvansed() {
-        Radio radio = new Radio(33);
+        Radio radio = new Radio(30, 33, 51);
         radio.setCurrentStation(31);
         radio.nextButtonStation();
         assertEquals(32, radio.getCurrentStation());
@@ -66,7 +66,7 @@ class RadioTest {
 
     @Test
     public void pressedPrevButtonStationAdvansed() {
-        Radio radio = new Radio(33);
+        Radio radio = new Radio(0, 33, 1);
         radio.prevButtonStation();
         assertEquals(32, radio.getCurrentStation());
 
@@ -99,8 +99,7 @@ class RadioTest {
 
     @Test
     public void decreaseSoundVolume() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(100);
+        Radio radio = new Radio(0, 10, 100);
         radio.nextBattonMinus();
         assertEquals(99, radio.getCurrentVolume());
 
