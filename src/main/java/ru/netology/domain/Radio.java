@@ -1,15 +1,21 @@
 package ru.netology.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
+
 public class Radio {
     private int currentStation;
+    private int quantityStation = 10;
     private int currentVolume;
 
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
     public void setCurrentStation(int currentStation) {
-        if (currentStation > 9) {
+        if (currentStation > quantityStation - 1) {
             return;
         }
         if (currentStation < 0) {
@@ -19,7 +25,7 @@ public class Radio {
     }
 
     public void nextButtonStation() {
-        if (currentStation == 9) {
+        if (currentStation == quantityStation - 1) {
             currentStation = 0;
         } else {
             this.currentStation = currentStation + 1;
@@ -28,18 +34,14 @@ public class Radio {
 
     public void prevButtonStation() {
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = quantityStation - 1;
         } else {
             this.currentStation = currentStation - 1;
         }
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > 10) {
+        if (currentVolume > 100) {
             return;
         }
         if (currentVolume < 0) {
@@ -49,16 +51,14 @@ public class Radio {
     }
 
     public void nextBattonPlus() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
-        this.currentVolume = currentVolume;
     }
 
     public void nextBattonMinus() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
-        this.currentVolume = currentVolume;
     }
 }
